@@ -19,9 +19,9 @@ function highlightCurrentNav() {
   navLinks.forEach((link) => {
     const linkPage = link.getAttribute("href");
 
-    // 判断逻辑：如果当前是 works.html 或以 "work-" 开头，就高亮“作品”菜单
+    // 判断逻辑：如果当前是 index.html 或以 "work-" 开头，就高亮“作品”菜单
     if (
-      (linkPage === "works.html" && currentPage.startsWith("works")) ||
+      (linkPage === "index.html" && currentPage.startsWith("works")) ||
       linkPage === currentPage
     ) {
       link.classList.add("active");
