@@ -14,6 +14,7 @@ fetch("footer.html")
 // 封装高亮函数
 function highlightCurrentNav() {
   const currentPage = window.location.pathname.split("/").pop();
+  if (currentPage === "") currentPage = "index.html"; // 默认情况处理
   const navLinks = document.querySelectorAll(".nav a");
 
   navLinks.forEach((link) => {
