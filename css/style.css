@@ -1,0 +1,268 @@
+/* 设置全局样式：去除默认边距，设置字体、背景色和文字颜色 */
+body {
+  margin: 0;
+  background: #f5f5f5;
+  padding-top: 60px;
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #545454;
+}
+
+/* 页面主容器，最大宽度为1200px，居中对齐，四周有内边距 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 页眉区域，横向排列，左右两端对齐，允许换行 */
+.header {
+  /* height: 50px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* logo部分横向排列，间距为1rem */
+.logo-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+/* 导航链接样式：间距、无下划线、颜色为深灰色 */
+.nav a {
+  position: relative;
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #545454;
+}
+
+/* 底部横线效果：初始隐藏 */
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  width: 12px;
+  height: 3px;
+  background-color: #a1a1a1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 当前页面的激活样式 */
+.nav a.active::after {
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+/* 主体内容网格布局，默认三列，间距为2rem */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-wk {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  row-gap: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 设置卡片链接基础样式 */
+.item {
+  display: block; /* 让整个区域可点击 */
+  text-decoration: none; /* 去除链接下划线 */
+  color: inherit; /* 保持文字颜色一致 */
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s; /* 添加过渡动画 */
+}
+
+.item.large {
+  grid-column: span 2; /* 占据两列 */
+}
+
+.item.small_2-1 {
+  aspect-ratio: 2 / 1; /* 保持宽高比为 2:1 */
+  border-radius: 12px;
+}
+
+.item.small_3-2 {
+  aspect-ratio: 5 / 3;
+  border-radius: 12px;
+}
+
+/* 图片区域，占满宽度 */
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 悬停时图片透明度降低 */
+.item img:hover {
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.works-page .item img:hover {
+  opacity: 1 !important;
+  transition: none !important;
+  cursor: default;
+}
+
+.index .item img {
+  margin-bottom: 0.5rem;
+  aspect-ratio: 3 / 2;
+}
+
+.image-title {
+  font-size: 16px;
+  color: #545454;
+  margin-bottom: 0.1rem;
+}
+.image-desc {
+  font-size: 12px;
+  color: #a1a1a1;
+  margin-top: 0.1rem;
+}
+
+.works-title {
+  text-align: center;
+}
+
+/* 联系我模块样式 */
+.contact {
+  margin-top: 3rem;
+  display: flex;
+  gap: 20px;
+  padding: 15px 25px;
+  /* background: rgba(255, 255, 255, 0.9);
+  border-radius: 40px; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
+.contact img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.contact img:hover {
+  transform: scale(1.1);
+}
+
+.contact video {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  animation: play 1s linear infinite;
+}
+
+.contact video:hover {
+  transform: scale(1.1);
+}
+
+.contact .qr-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.contact .qr-image {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+
+  /* 初始隐藏 + 动画 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.qr-wrapper:hover .qr-image {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 页脚样式 */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 12px;
+}
+
+/* title 居中文本*/
+.title {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.title p {
+  line-height: 2;
+}
+
+.title img {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+}
+
+.Skills {
+  font-size: 12px;
+}
+
+/* My Works 居中文本*/
+.works {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 屏幕宽度小于900px时，布局变为两列 */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 屏幕宽度小于600px时，布局变为一列 */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
