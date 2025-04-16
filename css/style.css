@@ -132,7 +132,7 @@ body {
 }
 
 .index .item img {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   aspect-ratio: 3 / 2;
 }
 
@@ -270,6 +270,15 @@ body {
     row-gap: 20px;
   }
   .container {
-    padding: 1rem;
+    padding: 1.5rem;
+  }
+  .item.small {
+    grid-column: span 2; /* 占据两列 */
+  }
+  .item.small_2-1 {
+    grid-column: span 2; /* 占据两列 */
+  }
+  .item.small_3-2 {
+    grid-column: span 2; /* 占据两列 */
   }
 }
