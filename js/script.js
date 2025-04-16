@@ -86,4 +86,24 @@ function highlightCurrentNav() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   })();
+
+  // 点击显示二维码
+  document.addEventListener("DOMContentLoaded", function () {
+    const qrWrapper = document.querySelector(".qr-wrapper");
+
+    // 判断是否为移动设备
+    const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isMobile && qrWrapper) {
+      qrWrapper.addEventListener("click", function (e) {
+        e.stopPropagation(); // 防止冒泡
+        qrWrapper.classList.toggle("active");
+      });
+
+      // 点击页面其他地方关闭二维码
+      document.addEventListener("click", function () {
+        qrWrapper.classList.remove("active");
+      });
+    }
+  });
 }
