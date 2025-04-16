@@ -46,17 +46,24 @@ function highlightCurrentNav() {
   });
 }
 
-// ========== 4. 移动端点击微信图标显示/隐藏二维码 ==========
+// ========== 4. 点击微信图标显示/隐藏二维码 ==========
 function enableQRCodeToggle() {
   const qrWrapper = document.querySelector(".qr-wrapper");
-  const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const qrCode = document.querySelector(".qr-code");
 
-  if (isMobile && qrWrapper) {
-    qrWrapper.addEventListener("click", function (e) {
+  if (qrWrapper) {
+    // 事件委托：点击微信 icon 显示二维码
+    document.querySelector(".qr-icon").addEventListener("click", function (e) {
       e.stopPropagation();
       qrWrapper.classList.toggle("active");
     });
 
+    // 点击透明遮罩层隐藏二维码
+    qrCode.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+
+    // 点击外部隐藏二维码
     document.addEventListener("click", function () {
       qrWrapper.classList.remove("active");
     });
