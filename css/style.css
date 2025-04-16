@@ -215,6 +215,11 @@ body {
   visibility: visible;
 }
 
+.qr-wrapper:active .qr-image {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* 页脚样式 */
 .footer {
   text-align: center;
